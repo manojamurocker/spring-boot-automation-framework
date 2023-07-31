@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <CustomLevels>
+        <CustomLevel name="EXCEPTION" intLevel="150" />
+        <CustomLevel name="ASSERTION" intLevel="250" />
+        <CustomLevel name="REQ_RES" intLevel="350" />
+    </CustomLevels>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%highlight{[%4p]}{DEBUG=red, RESPONSE=yellow, ASSERTION=blue, REQUEST=green, INFO=magenta} %cyan{[%t] - [%d{yy-MM-dd HH:mm:ss}]} %highlight{[%c{1}]%m%n}{DEBUG=red, RESPONSE=yellow, ASSERTION=blue, REQUEST=green, INFO=magenta}" disableAnsi="false"/>
+        </Console>
+        <File name="MyFile" fileName="logs/app.log" append="true">
+            <PatternLayout pattern="[%4p] [%t]- [%d{yy-MM-dd HH:mm:ss}] [%c{1}]%m%n" disableAnsi="false"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Logger name="NameOfTheClassToLog" level="warn" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+<!--        <Logger name="NameOfAnotherClassToLog" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>-->
+        <Root level="WARN">
+            <AppenderRef ref="MyFile" />
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

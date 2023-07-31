@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AjioBusiness_StorefrontAPI_Automation" parallel="false" group-by-instances="true">
+    <listeners>
+        <listener class-name="com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.report.CustomEmailableReport" />
+    </listeners>
+    <test name="AjioBusiness_StorefrontAPI_Automation">
+        <!-- Specify the Run Suite classes which needed to be run in parallel -->
+        <classes>
+            <class name="com.springboot.frameworkDraft.springbootautomationrestapi.tests.Test1"/>
+        </classes>
+    </test>
+</suite>
