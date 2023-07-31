@@ -53,7 +53,7 @@ public class TestngController {
         XmlTest test = new XmlTest(suite);
         test.setName("codekru"); // this means <test name = "codekru">
         List<XmlClass> classes = new ArrayList<>(); // <classes>
-        classes.add(new XmlClass("com.springboot.frameworkDraft.springbootautomationrestapi.automation.tests.Test1")); // this means <class name = "Test.CodekruTest">
+        classes.add(new XmlClass("com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.tests.Test1")); // this means <class name = "Test.CodekruTest">
         test.setXmlClasses(classes);
 
         String listener = "com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.report.CustomEmailableReport";

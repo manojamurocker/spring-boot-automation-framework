@@ -20,7 +20,7 @@ public class ConfigService<K> {
     }
 
     public void setProperty(String key, K value){
-        propertyMap.put(key, value);
+        propertyMap.put(key,  value);
     }
 
     public K getProperty(String key){
