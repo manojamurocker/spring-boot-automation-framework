@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="AjioBusiness_StorefrontAPI_Automation" parallel="false" group-by-instances="true">
+<suite name="AjioBusiness_StorefrontAPI_Automation" parallel="tests" >
     <listeners>
         <listener class-name="com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.report.CustomEmailableReport" />
     </listeners>
-    <test name="AjioBusiness_StorefrontAPI_Automation">
+    <test name="test1">
         <!-- Specify the Run Suite classes which needed to be run in parallel -->
         <classes>
-            <class name="com.springboot.frameworkDraft.springbootautomationrestapi.tests.Test1"/>
+            <class name="com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.tests.functional.createUser.Test_CreateUser"/>
+        </classes>
+    </test>
+    <test name="test2">
+        <!-- Specify the Run Suite classes which needed to be run in parallel -->
+        <classes>
+            <class name="com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.tests.functional.createUser.Test_CreateUser"/>
+        </classes>
+    </test>
+    <test name="test 3">
+        <!-- Specify the Run Suite classes which needed to be run in parallel -->
+        <classes>
+            <class name="com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.tests.functional.createUser.Test_CreateUser"/>
         </classes>
     </test>
 </suite>

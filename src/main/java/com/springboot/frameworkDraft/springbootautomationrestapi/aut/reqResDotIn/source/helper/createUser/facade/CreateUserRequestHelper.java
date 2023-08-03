@@ -1,15 +1,16 @@
-package com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.source.helper.createUser;
+package com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.source.helper.createUser.facade;
 
 import com.github.javafaker.Faker;
 import com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.source.dto.createUser.CreateUserRequestDto;
 import com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.source.dto.createUser.CreateUserResponseDto;
+import com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.source.helper.sourceBase.SourceBase;
+import com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.config.ConfigService;
 import com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.restService.restImplementation.RestService;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-public class CreateUserRequestHelper {
-
+public class CreateUserRequestHelper extends SourceBase {
 
     private RequestSpecification requestBuilder(){
         RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();

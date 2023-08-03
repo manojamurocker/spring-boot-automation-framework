@@ -1,5 +1,11 @@
 package com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -7,6 +13,7 @@ import java.util.List;
 /**
  * @author manoj263.kumar
  */
+@Component
 public class ConfigService<K> {
 
     LinkedHashMap<String, Object> objectMap;
@@ -20,27 +27,27 @@ public class ConfigService<K> {
     }
 
     public void setProperty(String key, K value){
-        propertyMap.put(key,  value);
+        this.propertyMap.put(key,  value);
     }
 
     public K getProperty(String key){
-        return propertyMap.get(key);
+        return this.propertyMap.get(key);
     }
 
     public void setObject(String key, Object obj){
-        objectMap.put(key, obj);
+        this.objectMap.put(key, obj);
     }
 
     public Object getObject(String key){
-        return objectMap.get(key);
+        return this.objectMap.get(key);
     }
 
     public void setListMap(String key, List<HashMap<String,String>> listMap){
-        listHashMap.put(key, listMap);
+        this.listHashMap.put(key, listMap);
     }
 
     public List<HashMap<String,String>> getListMap(String Key){
-        return listHashMap.get(Key);
+        return this.listHashMap.get(Key);
     }
 
 }

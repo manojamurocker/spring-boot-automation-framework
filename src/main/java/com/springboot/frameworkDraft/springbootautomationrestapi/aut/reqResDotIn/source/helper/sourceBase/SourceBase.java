@@ -1,9 +1,13 @@
 package com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.source.helper.sourceBase;
 
-public abstract class SourceBase {
+import com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.config.ConfigService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
 
-    public abstract void callAndValidateApi();
-    public abstract void callAndValidateApi(int rowNum);
 
+public abstract class SourceBase{
 
+    @Autowired
+    protected ConfigService<Object> configService;
 }
