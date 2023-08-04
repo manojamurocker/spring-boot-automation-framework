@@ -9,9 +9,17 @@ import com.springboot.frameworkDraft.springbootautomationrestapi.maverick.servic
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CreateUserRequestHelper extends SourceBase {
 
+    @Autowired
+    public CreateUserRequestDto createUserRequestDto;
+
+    @Autowired
+    public RestService restService;
     private RequestSpecification requestBuilder(){
         RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
         requestSpecBuilder.setBaseUri("https://reqres.in/");
@@ -21,11 +29,9 @@ public class CreateUserRequestHelper extends SourceBase {
     }
     private CreateUserRequestDto createRequestBody(){
 
-        CreateUserRequestDto createUserRequestDto = new CreateUserRequestDto();
         createUserRequestDto.setJob("engineer");
         Faker faker = new Faker();
         createUserRequestDto.setName(faker.funnyName().name());
-
         return createUserRequestDto;
     }
 
@@ -33,7 +39,6 @@ public class CreateUserRequestHelper extends SourceBase {
         CreateUserRequestDto createUserRequestDto  = createRequestBody();
         RequestSpecification rspec = requestBuilder();
 
-        RestService restService = new RestService();
         return (CreateUserResponseDto) restService.post(rspec, createUserRequestDto, new CreateUserResponseDto());
     }
 }

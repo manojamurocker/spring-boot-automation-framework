@@ -7,19 +7,8 @@
     <test name="test1">
         <!-- Specify the Run Suite classes which needed to be run in parallel -->
         <classes>
-            <class name="com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.tests.functional.createUser.Test_CreateUser"/>
+            <class name="com.springboot.frameworkDraft.springbootautomationrestapi.test.Test_CreateUser"/>
         </classes>
     </test>
-    <test name="test2">
-        <!-- Specify the Run Suite classes which needed to be run in parallel -->
-        <classes>
-            <class name="com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.tests.functional.createUser.Test_CreateUser"/>
-        </classes>
-    </test>
-    <test name="test 3">
-        <!-- Specify the Run Suite classes which needed to be run in parallel -->
-        <classes>
-            <class name="com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.tests.functional.createUser.Test_CreateUser"/>
-        </classes>
-    </test>
+
 </suite>

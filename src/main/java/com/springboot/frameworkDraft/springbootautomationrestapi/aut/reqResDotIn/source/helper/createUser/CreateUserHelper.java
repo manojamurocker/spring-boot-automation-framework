@@ -5,25 +5,24 @@ import com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn
 import com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.source.helper.createUser.facade.CreateUserResponseHelper;
 import com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.source.helper.sourceBase.SourceBase;
 import com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.config.ConfigService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CreateUserHelper extends SourceBase {
 
+    @Autowired
+    protected CreateUserResponseHelper createUserResponseHelper;
+
+    @Autowired
+    protected CreateUserRequestHelper createUserRequestHelper;
 
     /**
      *
      */
     public void callAndValidateApi() {
-        CreateUserRequestHelper createUserRequestHelper = new CreateUserRequestHelper();
         CreateUserResponseDto createUserResponseDto = createUserRequestHelper.callApi();
-
-        CreateUserResponseHelper createUserResponseHelper = new CreateUserResponseHelper();
         createUserResponseHelper.validateResponse(createUserResponseDto);
     }
 
-    /**
-     * @param rowNum
-     */
-    public void callAndValidateApi(int rowNum) {
-
-    }
 }

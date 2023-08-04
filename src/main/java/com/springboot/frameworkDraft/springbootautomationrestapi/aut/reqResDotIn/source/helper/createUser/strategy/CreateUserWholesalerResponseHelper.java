@@ -2,7 +2,9 @@ package com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotI
 
 import com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.assertion.AssertionService;
 import com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.logger.LogService;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CreateUserWholesalerResponseHelper extends CreateUserStrategy{
     /**
      *

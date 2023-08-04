@@ -20,45 +20,9 @@ public class TestngController {
 
     @GetMapping("run")
     public ResponseEntity<String> runTestNg() {
-        try {
-            runMvnCmd();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return ResponseEntity.ok("Here");
-    }
+        createTestNGFile();
 
-    private void runMvnCmd() throws IOException {
-        // The actual procedure for process execution:
-        //runCommand(String cmd);
-        // Create a list for storing output.
-        ArrayList list = new ArrayList();
-        // Execute a command and get its process handle
-        String cmd = "mvn clean test -DsuiteXmlFile=xmlFiles/testng.xml";
-        Process proc = Runtime.getRuntime().exec(cmd);
-        // Get the handle for the processes InputStream
-//        InputStream istr = proc.getInputStream();
-//        // Create a BufferedReader and specify it reads
-//        // from an input stream.
-//
-//        BufferedReader br = new BufferedReader(new InputStreamReader(istr));
-//        String str; // Temporary String variable
-//        // Read to Temp Variable, Check for null then
-//        // add to (ArrayList)list
-//        while ((str = br.readLine()) != null)
-//            list.add(str);
-//        // Wait for process to terminate and catch any Exceptions.
-//        try {
-//            proc.waitFor();
-//        }
-//        catch (InterruptedException e) {
-//            System.err.println("Process was interrupted");
-//        }
-//        // Note: proc.exitValue() returns the exit value.
-//        // (Use if required)
-//        br.close(); // Done.
-//        // Convert the list to a string and return
-//        return (String[])list.toArray(new String[0]);
+        return ResponseEntity.ok("Here");
     }
 
 /*    private void runMvn() {
@@ -83,7 +47,7 @@ public class TestngController {
     }*/
 
 
-    private void createTestNGFile(){
+    private void createTestNGFile1(){
         XmlSuite suite = new XmlSuite();
         suite.setName("some name"); // this means <suite name = "codekru">
 
@@ -91,6 +55,26 @@ public class TestngController {
         test.setName("codekru"); // this means <test name = "codekru">
         List<XmlClass> classes = new ArrayList<>(); // <classes>
         classes.add(new XmlClass("com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.tests.Test1")); // this means <class name = "Test.CodekruTest">
+        test.setXmlClasses(classes);
+
+        String listener = "com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.report.CustomEmailableReport";
+        suite.addListener(listener);
+
+        List<XmlSuite> suites = new ArrayList<XmlSuite>();
+        suites.add(suite);
+        TestNG testng = new TestNG();
+        testng.setXmlSuites(suites);
+        testng.run();
+    }
+
+    private void createTestNGFile(){
+        XmlSuite suite = new XmlSuite();
+        suite.setName("some name"); // this means <suite name = "codekru">
+
+        XmlTest test = new XmlTest(suite);
+        test.setName("codekru"); // this means <test name = "codekru">
+        List<XmlClass> classes = new ArrayList<>(); // <classes>
+        classes.add(new XmlClass("src.test.java.com.springboot.frameworkDraft.springbootautomationrestapi.test.Test_CreateUser1")); // this means <class name = "Test.CodekruTest">
         test.setXmlClasses(classes);
 
         String listener = "com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.report.CustomEmailableReport";

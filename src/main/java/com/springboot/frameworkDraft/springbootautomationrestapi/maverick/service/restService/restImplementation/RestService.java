@@ -13,12 +13,14 @@ import io.restassured.config.EncoderConfig;
 import io.restassured.config.SSLConfig;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 /**
  * @author manoj263.kumar
  */
+@Component
 public class RestService implements GetRestInterface, PostRestInterface, PutRestInterface, DeleteRestInterface {
 
 

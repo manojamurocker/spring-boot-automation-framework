@@ -5,8 +5,11 @@ import com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn
 import com.springboot.frameworkDraft.springbootautomationrestapi.aut.reqResDotIn.source.helper.sourceBase.SourceBase;
 import com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.config.ConfigService;
 import com.springboot.frameworkDraft.springbootautomationrestapi.maverick.service.logger.LogService;
+import org.springframework.stereotype.Component;
 import org.testng.Assert;
 
+
+@Component
 public class CreateUserResponseHelper extends SourceBase {
 
     CreateUserResponseDto createUserResponseDto;
@@ -22,11 +25,12 @@ public class CreateUserResponseHelper extends SourceBase {
         LogService.Assertion("Response Thread Id:"+ Thread.currentThread().getId());
         Assert.assertNotNull(createUserResponseDto.getName());
         LogService.Info(createUserResponseDto.getName());
+        LogService.Assertion("manoj:"+ this.configService.getProperty("manoj"));
+
     }
 
     private void verifyUserStrategyResponse(){
         String userType = (String) configService.getProperty("UserType");
-
 
         CreateUserStrategy userStrategy = null;
         if(userType == null){
